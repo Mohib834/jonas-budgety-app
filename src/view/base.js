@@ -6,4 +6,13 @@ export const elements = {
 	addVal:document.querySelector('.add__value'),
 	incomeList:document.querySelector('.income__list'),
 	expenseList:document.querySelector('.expenses__list'),
+	transContainer:document.querySelector('.container'),
+	budgetIncome:document.querySelector('.budget__income--value'),
+	budgetExpense:document.querySelector('.budget__expenses--value'),
+	budgetTotal:document.querySelector('.budget__value')
+
+}
+
+export const elementsClassName = {
+	delBtn:'item__delete--btn',
 }
