@@ -2,10 +2,10 @@ import {elements} from './base';
 
 export const getInputVal = () => {
 	return {
-		type:elements.addType.value,
-		des:elements.addDes.value,
-		val:elements.addVal.value
-	}
+			type:elements.addType.value,
+			des:elements.addDes.value,
+			val:elements.addVal.value
+			}
 }
 
 export const clearInputVal = () => {
@@ -53,13 +53,13 @@ export const renderTotal = (type,val) => {
 	
 	if(type === 'inc'){
 		incomeTotal += val;
-		elements.budgetIncome.innerHTML = `+ ${incomeTotal}`;
+		elements.budgetIncome.innerHTML = `+ ${incomeTotal.toLocaleString()}`;
 	}
 	else if(type === 'exp'){
 		expenseTotal += val;
-		elements.budgetExpense.innerHTML = `- ${expenseTotal}`;
+		elements.budgetExpense.innerHTML = `- ${expenseTotal.toLocaleString()}`;
 	}
 
-	totalBudget = incomeTotal - expenseTotal;
+	totalBudget = (incomeTotal - expenseTotal).toLocaleString();
 	elements.budgetTotal.innerHTML = totalBudget;
 }

@@ -6,32 +6,39 @@ import {elements,elementsClassName} from './view/base';
 const state = {};
 
 const controllerAdd = () => {
-	//1)Get the Input Val and clear input on UI
+
+	//1)Get the Input Val, check if values are present in field and then clear input on UI.
 	const inputs = viewTrans.getInputVal();
-	viewTrans.clearInputVal();
 
-	//2)Check if it is income or expense
-	if(inputs.type === 'inc'){
+	if(inputs.des !== '' && inputs.val !== ''){
+		
+		viewTrans.clearInputVal();
 
-		state.income = new Income(inputs.type,inputs.des,inputs.val);
-		const income = state.income;
-		//Render income list on UI
+		//2)Check if it is income or expense
+		if(inputs.type === 'inc'){
 
-		viewTrans.renderIncomeList(income.type,income.description,income.value);
-		//Render income Total on Ui
-		viewTrans.renderTotal(income.type,income.value);;
-	}
+			state.income = new Income(inputs.type,inputs.des,inputs.val);
+			const income = state.income;
+			//Render income list on UI
+
+			viewTrans.renderIncomeList(income.type,income.description,income.value);
+			//Render income Total on Ui
+			viewTrans.renderTotal(income.type,income.value);;
+		}
 	else if(inputs.type === 'exp'){
 
-		state.expense = new Expense(inputs.type,inputs.des,inputs.val);
-		const expense = state.expense;
+			state.expense = new Expense(inputs.type,inputs.des,inputs.val);
+			const expense = state.expense;
 
-		//Render expense list on UI	
-		viewTrans.renderExpenseList(expense.type,expense.description,expense.value);
+			//Render expense list on UI	
+			viewTrans.renderExpenseList(expense.type,expense.description,expense.value);
 
-		//Render expense Total on Ui
-		viewTrans.renderTotal(expense.type,expense.value);;
+			//Render expense Total on Ui
+			viewTrans.renderTotal(expense.type,expense.value);;
+		}
 	}
+	
+	
 
 	//3)
 }
